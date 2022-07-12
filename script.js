@@ -45,5 +45,8 @@ results.forEach(({ id: sku, title: name, thumbnail: image }) => {
     secaoItens.appendChild(createProductItemElement({ sku, name, image }));
 });
 }
+
+listaProdutos();
+
 window.onload = () => {  
 };
