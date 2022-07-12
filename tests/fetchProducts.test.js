@@ -12,7 +12,7 @@ describe('1 - Teste a função fetchProducts', () => {
     expect.assertions(1);
     expect(fetch).toHaveBeenCalledTimes(1);
   })
-
+  
   it('Teste se o retorno da função fetchProducts com o argumento "computador" é o objeto esperado', async () => {
     fetchProducts('computador');
     expect.assertions(1);
