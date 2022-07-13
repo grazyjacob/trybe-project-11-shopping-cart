@@ -17,9 +17,11 @@ describe('2 - Teste a função fetchItem', () => {
     const expected = new Error('You must provide an url')
     expect(await fetchItem()).toEqual(expected);
   })
+
   it('Se chamar a função passando um argumento a função retorna um objeto igual ao "item"', async () => {
     expect(await fetchItem('MLB1615760527')).toEqual(item);
   })
+  
   it('Se chamar a função passando um argumento a função utiliza um endpoint com o argumento passado', async () => {
     const endpoint = 'https://api.mercadolibre.com/items/MLB1615760527'
     await fetchItem('MLB1615760527');
@@ -27,9 +29,3 @@ describe('2 - Teste a função fetchItem', () => {
     expect(fetch).toHaveBeenCalledWith(endpoint);
   })
 });
-
-// - Teste se, ao chamar a função `fetchItem` com o argumento 
-// do item "MLB1615760527", a função `fetch` utiliza o endpoint
-// "https://api.mercadolibre.com/items/MLB1615760527";
- 
-// - Será avaliado se os testes implementados atingem no mínimo 50% da cobertura total e 100% da função `fetchItem`.
