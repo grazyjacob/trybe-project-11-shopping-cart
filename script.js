@@ -63,5 +63,3 @@ listaProdutos();
 
 window.onload = () => {  
 };
-
-// cartItems.innerHTML = '' // Limpa todos da lista
