@@ -59,6 +59,10 @@ results.forEach(({ id: sku, title: name, thumbnail: image }) => {
   button.addEventListener('click', addToCart);
 });
 }
+const buttonEmptyCar = document.querySelector('.empty-cart');
+
+buttonEmptyCar.addEventListener('click', () => { cartItems.innerHTML = ''; });
+
 listaProdutos();
 window.onload = () => { 
   // const items = getSavedCartItems();
