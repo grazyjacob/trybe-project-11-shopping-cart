@@ -63,6 +63,7 @@ const createProductImageElement = (imageSource) => {
   button.addEventListener('click', addToCart);
   });
   }
+  
   const buttonEmptyCar = document.querySelector('.empty-cart');
   
   buttonEmptyCar.addEventListener('click',
