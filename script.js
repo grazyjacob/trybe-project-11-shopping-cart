@@ -29,15 +29,17 @@ const createProductImageElement = (imageSource) => {
   
   const cartItemClickListener = (event) => {
   const click = event;
-  click.target.innerHTML = ''; 
-  getLi();
+  cartItems.removeChild(click.target);
   };
+
+  const savee = () => saveCartItems(cartItems.innerText);
   
   const createCartItemElement = ({ sku, name, salePrice }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
   li.innerText = `SKU: ${sku} | NAME: ${name} | PRICE: $${salePrice}`;
   li.addEventListener('click', cartItemClickListener);
+  li.addEventListener('click', savee);
   return li;
   };
   
@@ -67,14 +69,28 @@ const createProductImageElement = (imageSource) => {
   () => { cartItems.innerHTML = ''; localStorage.clear(); });
   
   listaProdutos();
-  
+    let array = [];
+  function separaEmArray(items) {
+    array = items.split('SKU');
+    array.shift();
+    return array;
+  }
+    
+  const clearLi = (event) => {
+    const click = event;
+    cartItems.removeChild(click.target);
+  };
+
+  const save = () => saveCartItems(cartItems.innerText);
   window.onload = () => { 
   const items = getSavedCartItems('cartItems');
-  function creatCartItems() {
+  const arrayItems = separaEmArray(items);
+  arrayItems.forEach((item) => {
     const li = document.createElement('li');
     li.className = 'cart__item';
-    li.innerText = items;
+    li.innerText = `SKU${item}`;
     cartItems.appendChild(li);
-  }
-  creatCartItems();
+    li.addEventListener('click', clearLi);
+    li.addEventListener('click', save);
+  });
   };
