@@ -70,10 +70,12 @@ const createProductImageElement = (imageSource) => {
   () => { cartItems.innerHTML = ''; localStorage.clear(); });
   
   listaProdutos();
-    let array = [];
+
   function separaEmArray(items) {
+    let array = [];
     array = items.split('SKU');
     array.shift();
+    console.log(array);
     return array;
   }
     
@@ -96,6 +98,8 @@ const createProductImageElement = (imageSource) => {
   };
   window.onload = () => { 
   const items = getSavedCartItems('cartItems');
-  const arrayItems = separaEmArray(items);
-  criaItems(arrayItems);
+  if (items) {
+    const arrayItems = separaEmArray(items);
+    criaItems(arrayItems);
+  }
   };
