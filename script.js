@@ -81,8 +81,10 @@ const createProductImageElement = (imageSource) => {
     const click = event;
     cartItems.removeChild(click.target);
   };
-  const criaItems = (array) => {
-    const arrayItems = array;
+
+  const save = () => saveCartItems(cartItems.innerText);
+  const criaItems = (lista) => {
+    const arrayItems = lista;
     arrayItems.forEach((item) => {
       const li = document.createElement('li');
       li.className = 'cart__item';
@@ -91,11 +93,9 @@ const createProductImageElement = (imageSource) => {
       li.addEventListener('click', clearLi);
       li.addEventListener('click', save);
     });
-  }
-
-  const save = () => saveCartItems(cartItems.innerText);
+  };
   window.onload = () => { 
   const items = getSavedCartItems('cartItems');
   const arrayItems = separaEmArray(items);
-  criaItems(arrayItems)
+  criaItems(arrayItems);
   };
